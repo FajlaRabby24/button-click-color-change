@@ -31,11 +31,28 @@
     <title>Button Click Color Change</title>
 </head>
 
-<body class="bg-[#f4f7ff] font-poppins py-5">
+<body class="bg-[#f4f7ff] font-poppins py-5 h-screen flex items-center justify-center">
+
+    <button class="btn btn-primary" id="color-change-btn">Click to Change Color</button>
 
 
-
-
-    <script src="./js/script.js"></script>
+    <script>
+        const randomBodycolors = ['#f4f7ff', '#fce4ec', '#ffebcd', '#e0f7fa', '#f0f4c3', '#d1c4e9', '#ffccbc', '#b2dfdb', '#ffebee', '#c5cae9'];
+        let index = 0;
+        const changeColor = () =>{
+            if(index < randomBodycolors.length - 1){
+                index++;
+            }
+            else{
+                index = 0;
+            }
+        }
+        const selectedColor = randomBodycolors[index];
+        document.getElementById('color-change-btn').addEventListener('click', (event) => {
+            changeColor();
+            document.querySelector('body').style.backgroundColor = randomBodycolors[index];
+        })
+    </script>
 </body>
+
 </html>
